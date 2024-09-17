@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="uva.png" type="image/x-icon">
+    <title>uvusha</title>
+    <style>
+        .containeryum {
+            text-align: center;
+        }
+
+        svg {
+            width: 200px;
+            height: 300px;
+        }
+
+        .flower-group {
+            animation: sway 2.5s ease-in-out infinite alternate;
+            transform-origin: bottom center;
+        }
+
+        @keyframes sway {
+            from {
+                transform: rotate(-6deg);
+            }
+
+            to {
+                transform: rotate(6deg);
+            }
+        }
+
+        .invisible-button {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 11%;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        @media only screen and (min-device-width: 720px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) {
+            .invisible-button {
+                height: 30%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <audio id="drop" autoplay loop>
+        <source src="LaQuePuede.mp3" type="audio/mp3">
+    </audio>
+    <div class="greetings">
+        <span>G</span> <!--1-->
+        <span>R</span> <!--2-->
+        <span>E</span> <!--3-->
+        <span>I</span> <!--4-->
+        <span>C</span> <!--5-->
+        <span>Y</span> <!--6-->
+        <!--<button class="invisible-button" onclick="playMusic()"></button>-->
+    </div>
+    <div class="bb">
+        <span class="bb">Un pequeño gesto para la niña más hermosa 🥰</span>
+    </div>
+    <div class="containeryum">
+        <svg viewBox="0 0 100 160">
+            <path d="M30 120 L70 120 L65 150 L35 150 Z" fill="#803500" stroke="#000000" stroke-width="0" />
+            <rect x="35" y="125" width="30" height="25" fill="#803900" stroke="#000000" stroke-width="0" />
+            <path d="M 29 120 A 7 1 0 0 1 71 120 L 62 120 L 40 120 Z" fill="#803000" stroke="#000000"
+                stroke-width="0.2" />
+            <rect x="29" y="120" width="42" height="5" fill="#9A3410" stroke="#000000" stroke-width="0" />
+
+            <g class="flower-group">
+                <line x1="50" y1="120" x2="50" y2="50" stroke="#228B22" stroke-width="3" />
+                <path d="M50 100 Q67 95 67 80 Q50 80 50 100" fill="#228B22" stroke="#ffffff" stroke-width="0" />
+                <path d="M50 90 Q33 85 33 70 Q48 70 50 90" fill="#228B22" stroke="#ffffff" stroke-width="0" />
+                <path d="M50 110 Q33 105 33 90 Q50 90 50 110" fill="#228B22" stroke="#ffffff" stroke-width="0" />
+                <circle cx="50" cy="50" r="10" fill="#FFD700" stroke="#000000" stroke-width="0.2" />
+                <circle cx="50" cy="30" r="10" fill="#FFD700" stroke="#000000" stroke-width="0.2" />
+                <circle cx="65" cy="40" r="10" fill="#FFD700" stroke="#000000" stroke-width="0.2" />
+                <circle cx="65" cy="60" r="10" fill="#FFD700" stroke="#000000" stroke-width="0.2" />
+                <circle cx="50" cy="70" r="10" fill="#FFD700" stroke="#000000" stroke-width="0.2" />
+                <circle cx="35" cy="60" r="10" fill="#FFD700" stroke="#000000" stroke-width="0.2" />
+                <circle cx="35" cy="40" r="10" fill="#FFD700" stroke="#000000" stroke-width="0.2" />
+                <circle cx="50" cy="50" r="12" fill="#FFA500" stroke="#000000" stroke-width="0.2" />
+                <circle cx="45" cy="45" r="2" fill="black" />
+                <circle cx="55" cy="45" r="2" fill="black" />
+                <path d="M45 55 Q50 60 55 55" fill="none" stroke="black" stroke-width="2" />
+            </g>
+        </svg>
+    </div>
+    <div class="bb">
+        <span class="bb">Para recordarte lo espacial que eres 🙈</span>
+    </div> <br>
+
+    <div class="button">
+        <button class="botones">
+            <a href="flowers.html" style="color: #fff;">¡Has click aqui!</a>
+        </button>
+    </div>
+    <script>
+        window.onload = function () {
+            const debeReproducir = localStorage.getItem('reproducirMusica');
+            if (debeReproducir === 'true') {
+                const audio = document.getElementById('drop');
+                audio.play().then(() => {
+                    console.log("Audio reproducido con éxito");
+                }).catch(error => {
+                    console.log("No se pudo reproducir el audio automáticamente:", error);
+                    // Aquí podrías mostrar un botón para que el usuario active el audio manualmente
+                });
+                // Limpiamos el localStorage para futuras visitas
+                localStorage.removeItem('reproducirMusica');
+            }
+        }
+        function playMusic() {
+            const audio = document.getElementById('drop');
+            audio.play();
+        }
+    </script>
+</body>
+
+</html>
